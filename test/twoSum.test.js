@@ -1,4 +1,4 @@
-const twosum = require('../two_sum');
+const twosum = require('../twoSum');
 
 test('test twosum with [3,2,4] and 6', () => {
   expect(twosum([3,2,4],6)).toEqual([1,2]);
