@@ -21,16 +21,17 @@ function twosum(nums, target) {
 
      // iterate each number of the array nums
      for(var j=0; j<nums.length; j++){
-         idx1 = j;
-         for(var i=1; i<nums.length; i++){
+         var nextIdx = j + 1;
+         for(var i=nextIdx; i<nums.length; i++){
          if(nums[j] + nums[i] === target){
+             idx1 = j;
              idx2 = i;
              break;
          }
        }
      }
 
-     return [idx2, idx1];
+     return [idx1, idx2];
  };
 
 module.exports = twosum;
