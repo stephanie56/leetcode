@@ -17,24 +17,19 @@ function romanToInt(s) {
   var result = 0;
 
   s.split('').map((char, idx, arr) => {
-    if(!arr[idx+1]){
-      result += romanToVal(char);
-      console.log(result);
-    }
-    else if(char < arr[idx+1]){
-      result -= romanToInt(char);
-      console.log(result);
+    var currentCharVal = romanToVal(char);
+    var nextCharVal = romanToVal(arr[idx+1]);
+
+    if(!arr[idx+1] || currentCharVal >= nextCharVal){
+      result += currentCharVal;
     }
     else {
-      result += romanToVal(char);
-      console.log(result);
+      result -= currentCharVal;
     }
-
   });
 
    return result;
 };
-
 
 // helper function
 function romanToVal(char){
@@ -66,7 +61,5 @@ function romanToVal(char){
   }
   return number;
 }
-
-romanToInt('DCXXI');
 
 module.exports = romanToInt;
